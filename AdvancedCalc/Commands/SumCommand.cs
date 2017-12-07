@@ -8,22 +8,28 @@ namespace AdvancedCalc.Commands
 {
     class SumCommand : ICommand
     {
-        private double _num1, _num2;
+        private List<ICommand> _values;
+
+        public Type Type { get; set; }
 
         public SumCommand()
         {
-            _num1 = _num2 = 0;
+            _values = new List<ICommand>();
         }
 
-        public void AddArguments(double[] arg)
+        public void AddArguments(List<ICommand> arg)
         {
-            _num1 = arg[0];
-            _num2 = arg[1];
+            _values = arg;
         }
 
-        public double GetResult()
+        public double GetValue(double x)
         {
-            return _num1 + _num2;
+            double sum = 0;
+            foreach (var val in _values)
+            {
+                sum += val.GetValue(x);
+            }
+            return sum;
         }
     }
 }

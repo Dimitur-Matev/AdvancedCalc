@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using AdvancedCalc.BinaryTree;
+using AdvancedCalc.Tree;
 using AdvancedCalc.Commands;
 using AdvancedCalc.Exeptions;
 
@@ -12,12 +12,13 @@ namespace AdvancedCalc.Parcer
 {
     static class Parcer
     {
-        private static BinaryTreeNode<ICommand> rootNode;
+        private static Node<ICommand> rootNode;
         private static int counter = 0;
 
         
-        public static BinaryTreeNode<ICommand> Execute(string mathFormula)
+        public static Node<ICommand> Execute(string mathFormula)
         {
+            string[] partOfMathFormulaArray;
             foreach (char c in mathFormula)
             {
                 try
@@ -28,18 +29,19 @@ namespace AdvancedCalc.Parcer
                     //return if its command or not 
                     //if command send two params (char of the command and stuff betweeen brakets)
 
-                    ICommand currentCommand = CommandAnalyzer.Analyze(c);
                     string partOfMathFormula = RemoveCommandAndParentheses(mathFormula);
-                    string[] partOfMathFormulaArray = partOfMathFormula.Split(new string[] { "," }, StringSplitOptions.None);
+                    partOfMathFormulaArray = partOfMathFormula.Split(new string[] { "," }, StringSplitOptions.None);
+                    ICommand currentCommand = CommandAnalyzer.Analyze(c);
+                    
                     // add to current command the objects from recursion
                     // add it to node and return node 
 
-                    int command = CommandAnalyzer.IsCommand(ReturnFirstChar(partOfMathFormulaArray[0]));
-                    if (command ==1)
-                    {
-                        MessageBox.Show("ITS COMMAND");
-                        //GoFurther();
-                    }
+//                    int command = CommandAnalyzer.IsCommand(ReturnFirstChar(partOfMathFormulaArray[0]));
+//                    if (command ==1)
+//                    {
+//                        MessageBox.Show("ITS COMMAND");
+//                        //GoFurther();
+//                    }
                 }
                 catch (NotCommandExeption e)
                 {

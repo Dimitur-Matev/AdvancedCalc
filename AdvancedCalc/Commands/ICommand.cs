@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace AdvancedCalc.Commands
 {
+    enum Type
+    {
+        Constant,
+        Command
+    }
     interface ICommand
     {
-        double GetResult();
-        void AddArguments(double[] args);  // TODO: Change for Interface
+        Type Type { get; set; }
+        double GetValue(double x);
+        void AddArguments(List<ICommand> args);  
     }
 }

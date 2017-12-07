@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvancedCalc.BinaryTree
+namespace AdvancedCalc.Tree
 {
     public class NodeList<ICommand> : Collection<Node<ICommand>>
     {

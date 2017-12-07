@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdvancedCalc.BinaryTree
+namespace AdvancedCalc.Tree
 {
     public class Node<ICommand>
     {
@@ -28,7 +28,7 @@ namespace AdvancedCalc.BinaryTree
             this.rootNode = rootNode;
         }
 
-        public void addNode(Node<ICommand> root, ICommand value)
+        public void addNode(ICommand value)
         {
             children.Add(new Node<ICommand>(this, value));
         }
