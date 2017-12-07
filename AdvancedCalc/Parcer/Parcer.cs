@@ -78,6 +78,7 @@ namespace AdvancedCalc.Parcer
 
         private static string RemoveCommandAndParentheses(string formula)
         {
+            //TODO: Count the brakets 
             string result = "";
             DeveloperMode.Print(formula);
             int index = formula.IndexOf('(');

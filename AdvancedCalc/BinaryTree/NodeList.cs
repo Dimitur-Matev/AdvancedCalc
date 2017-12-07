@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdvancedCalc.BinaryTree
 {
-    public class NodeList<T> : Collection<Node<T>>
+    public class NodeList<ICommand> : Collection<Node<ICommand>>
     {
         public NodeList() : base() { }
 
@@ -15,13 +15,13 @@ namespace AdvancedCalc.BinaryTree
         {
             // Add the specified number of items
             for (int i = 0; i < initialSize; i++)
-                base.Items.Add(default(Node<T>));
+                base.Items.Add(default(Node<ICommand>));
         }
 
-        public Node<T> FindByValue(T value)
+        public Node<ICommand> FindByValue(ICommand value)
         {
             // search the list for the value
-            foreach (Node<T> node in Items)
+            foreach (Node<ICommand> node in Items)
                 if (node.Value.Equals(value))
                     return node;
 

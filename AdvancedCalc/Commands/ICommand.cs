@@ -9,6 +9,6 @@ namespace AdvancedCalc.Commands
     interface ICommand
     {
         double GetResult();
-        void AddArguments(double[] args);
+        void AddArguments(double[] args);  // TODO: Change for Interface
     }
 }

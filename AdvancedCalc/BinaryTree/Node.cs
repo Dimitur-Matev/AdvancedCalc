@@ -6,20 +6,40 @@ using System.Threading.Tasks;
 
 namespace AdvancedCalc.BinaryTree
 {
-    public class Node<T>
+    public class Node<ICommand>
     {
-        private T data;
-        private NodeList<T> children = null;
+        
+        private ICommand data;
+        private NodeList<ICommand> children;
+        private Node<ICommand> rootNode;
 
         public Node() { }
-        public Node(T data) : this(data, null) { }
-        public Node(T data, NodeList<T> children)
+        public Node(ICommand data) : this(data, null, null) { }
+        public Node(ICommand data, NodeList<ICommand> children, Node<ICommand> rootNode)
         {
             this.data = data;
             this.children = children;
+            this.rootNode = rootNode;
         }
 
-        public T Value
+        public Node(Node<ICommand> rootNode, ICommand data)
+        {
+            this.data = data;
+            this.rootNode = rootNode;
+        }
+
+        public void addNode(Node<ICommand> root, ICommand value)
+        {
+            children.Add(new Node<ICommand>(this, value));
+        }
+
+        public void removeNode(Node<ICommand> nodeToRemove)
+        {
+            Node<ICommand> temp = children.FindByValue(nodeToRemove.Value);
+            children.Remove(temp);
+        }
+
+        public ICommand Value
         {
             get
             {
@@ -31,7 +51,7 @@ namespace AdvancedCalc.BinaryTree
             }
         }
 
-        protected NodeList<T> Children
+        protected NodeList<ICommand> Children
         {
             get
             {
