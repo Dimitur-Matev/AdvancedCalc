@@ -65,9 +65,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BinaryTree\Node.cs" />
-    <Compile Include="BinaryTree\NodeList.cs" />
+    <Compile Include="Commands\Variable.cs" />
+    <Compile Include="Tree\Node.cs" />
+    <Compile Include="Tree\NodeList.cs" />
     <Compile Include="Commands\CommandAnalyzer.cs" />
+    <Compile Include="Commands\Constant.cs" />
     <Compile Include="Commands\SumCommand.cs" />
     <Compile Include="DeveloperMode.cs" />
     <Compile Include="Exeptions\NotCommandExeption.cs" />

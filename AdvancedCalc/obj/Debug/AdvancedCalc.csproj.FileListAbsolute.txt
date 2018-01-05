@@ -12,3 +12,4 @@ C:\Mitko\Documents\GitHub-Repos\AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc
 C:\Mitko\Documents\GitHub-Repos\AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.GenerateResource.Cache
 C:\Mitko\Documents\GitHub-Repos\AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.exe
 C:\Mitko\Documents\GitHub-Repos\AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.pdb
+C:\Mitko\Documents\GitHub-Repos\AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.CoreCompileInputs.cache

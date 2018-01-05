@@ -8,6 +8,7 @@ namespace AdvancedCalc.Commands
 {
     enum Type
     {
+        Variable,
         Constant,
         Command
     }

@@ -15,6 +15,7 @@ namespace AdvancedCalc.Commands
         public SumCommand()
         {
             _values = new List<ICommand>();
+            Type = Type.Command;
         }
 
         public void AddArguments(List<ICommand> arg)

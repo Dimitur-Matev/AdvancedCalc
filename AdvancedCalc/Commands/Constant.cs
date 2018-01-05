@@ -15,6 +15,7 @@ namespace AdvancedCalc.Commands
         public Constant(double val)
         {
             _value = val;
+            Type = Type.Constant;
         }
 
 

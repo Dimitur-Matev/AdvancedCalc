@@ -28,9 +28,16 @@ namespace AdvancedCalc.Tree
             this.rootNode = rootNode;
         }
 
-        public void addNode(ICommand value)
+        public void addChildNode(Node<ICommand> childNode)
         {
-            children.Add(new Node<ICommand>(this, value));
+            if(children == null)
+                children = new NodeList<ICommand>();
+            children.Add(childNode);
+        }
+
+        public void addRootNode(Node<ICommand> node)
+        {
+            this.rootNode = node;
         }
 
         public void removeNode(Node<ICommand> nodeToRemove)

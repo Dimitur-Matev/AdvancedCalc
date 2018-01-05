@@ -10,7 +10,10 @@ namespace AdvancedCalc.Commands
     {
         public Type Type { get; set; }
 
-        public Variable() {}
+        public Variable()
+        {
+            Type = Type.Variable;
+        }
 
         public void AddArguments(List<ICommand> arg) { }
 

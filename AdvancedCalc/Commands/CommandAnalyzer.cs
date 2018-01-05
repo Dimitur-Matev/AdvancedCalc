@@ -9,36 +9,37 @@ namespace AdvancedCalc.Commands
 {
     static class CommandAnalyzer
     {
-        public static ICommand Analyze(char arg)
+        public static ICommand Analyze(string arg)
         {
-            ICommand resultCommand;
-            switch (arg)
+            ICommand resultCommand = null;
+            //DeveloperMode.Print(arg);
+            char firstChar = arg.ToCharArray()[0];
+            switch (firstChar)
             {
                 case '+':
+                    DeveloperMode.Print("START SUM");
                     resultCommand = new SumCommand();
+                    DeveloperMode.Print("END SUM");
                     break;
                 case 'x':
+                    DeveloperMode.Print("START VARIABLE");
                     resultCommand = new Variable();
+                    DeveloperMode.Print("END VARIABLE");
                     break;
-
-                default:
-                    throw new NotCommandExeption();
             }
+
+            if (resultCommand == null)
+            {
+                
+                DeveloperMode.Print("START NUMBER");
+                double number = double.Parse(arg);
+                resultCommand = new Constant(number);
+                DeveloperMode.Print("END NUMBER");
+                
+            }
+
             return resultCommand;
         }
 
-        public static int IsCommand(char arg)
-        {
-            switch (arg)
-            {
-                case '+':
-                    return 1;
-                case 'x':
-                    return 1;
-
-                default:
-                    return 0;
-            }
-        }
     }
 }
